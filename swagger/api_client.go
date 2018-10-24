@@ -209,7 +209,7 @@ func (c *APIClient) prepareRequest(
 		}
 		var bodyBytes []byte
 		var err error
-		fmt.Println(tmpBody)
+		// fmt.Println(tmpBody)
 		if strings.HasSuffix(path, "order") && method == "DELETE" {
 			orderID := tmpBody["orderID"]
 			if strings.Contains(orderID, ",") {
