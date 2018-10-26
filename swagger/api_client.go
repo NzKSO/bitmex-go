@@ -207,17 +207,20 @@ func (c *APIClient) prepareRequest(
 		for k, v := range formParams {
 			tmpBody[k] = v[0]
 		}
+
 		var bodyBytes []byte
 		var err error
-		// fmt.Println(tmpBody)
+
 		if strings.HasSuffix(path, "order") && method == "DELETE" {
 			orderID := tmpBody["orderID"]
 			if strings.Contains(orderID, ",") {
-				splitOrderIDs := strings.Split(orderID, ",")
-				for i := range splitOrderIDs {
-					splitOrderIDs[i] = fmt.Sprintf("%q", splitOrderIDs[i])
+				splitedOrderIDs := strings.Split(orderID, ",")
+
+				for i := range splitedOrderIDs {
+					splitedOrderIDs[i] = fmt.Sprintf("%q", splitedOrderIDs[i])
 				}
-				bodyBytes = []byte("orderID=" + "[" + strings.Join(splitOrderIDs, ",") + "]")
+
+				bodyBytes = []byte("orderID=" + "[" + strings.Join(splitedOrderIDs, ",") + "]")
 			} else {
 				bodyBytes = []byte("orderID=" + tmpBody["orderID"])
 			}

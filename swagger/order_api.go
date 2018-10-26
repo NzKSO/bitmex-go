@@ -352,13 +352,15 @@ func (a *OrderApiService) OrderCancel(ctx context.Context, localVarOptionals map
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json", "application/x-www-form-urlencoded"}
+	// localVarHttpContentTypes := []string{"application/json", "application/x-www-form-urlencoded"}
 
 	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
+	// localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	// if localVarHttpContentType != "" {
+	// 	localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	// }
+
+	localVarHeaderParams["Content-Type"] = "application/x-www-form-urlencoded"
 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
