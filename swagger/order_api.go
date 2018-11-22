@@ -12,8 +12,6 @@ package swagger
 
 import (
 	"encoding/json"
-	"fmt"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
@@ -1122,8 +1120,8 @@ func (a *OrderApiService) OrderNew(ctx context.Context, symbol string, localVarO
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
-		fmt.Printf("%s\n", string(bodyBytes))
+		// bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		// fmt.Printf("%s\n", string(bodyBytes))
 		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 	}
 
